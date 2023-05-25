@@ -157,7 +157,7 @@
     z-index: 100;
     width: 45%;
     max-width: 500px;
-    min-width: 450px;
+    /* min-width: 450px; */
     max-height: 100vh;
     position: fixed;
     background-color:rgba(26, 81, 129, 0.911) ;
@@ -200,7 +200,11 @@
     font-size: 1rem;
     font-weight: bolder;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width:900px) and (min-width:831px) {
+    
+    .cart{width: 50%;}
+}
+@media screen and (max-width: 830px) {
     .cart {
       width: 100%;
       justify-content: center;
@@ -241,6 +245,7 @@
     }
     .cart-remove{
         margin-left: 2vw;
+        font-size: 2vw;
     }
     .remove-btn{
         margin-left: 2rem;
