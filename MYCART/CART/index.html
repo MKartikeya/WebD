@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Art Supplies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,155 +15,125 @@
             <img src="cartlogo.jpeg" class="logo" alt="">
         </div>
     </header>
-    <div class="cart">
+    <div class="cart close">
         <h2 class="cart-title">Your Cart</h2>
         <div class="cart-content">
-            <div class="cart-box">
-                <img src="1.jpg" alt="" class="cart-img">
-                <div class="details">
-                    <div class="cart-product-title fontss">GESSO</div>
-                    <div class="cart-price fontss">Price: $150</div>
-                    <input type="number" value="1" class="cart-quantity fontss"  min="1" max="10" id="quantity" name="quantity">
-                </div>
-                <div class="remove-btn">
-                    <i class='fa fa-close cart-remove' style='color: red' ></i>
-                </div>
-            </div>
-            <div class="cart-box">
-                <img src="2.jpg" alt="" class="cart-img">
-                <div class="details">
-                    <div class="cart-product-title fontss">RETARDER</div>
-                    <div class="cart-price fontss">Price: $250</div>
-                    <input type="number" value="1" class="cart-quantity fontss" id="quantity" name="quantity">
-                </div>
-                <div class="remove-btn">
-                    <i class='fa fa-close cart-remove' style='color: red' ></i>
-                </div>
-            </div>
-            <div class="cart-box">
-                <img src="1.jpg" alt="" class="cart-img">
-                <div class="details">
-                    <div class="cart-product-title fontss">GESSO</div>
-                    <div class="cart-price fontss">Price: $150</div>
-                    <input type="number" value="1" class="cart-quantity fontss" id="quantity" name="quantity">
-                </div>
-                <div class="remove-btn">
-                    <i class='fa fa-close cart-remove' style='color: red' ></i>
-                </div>
-            </div>
+            
         </div>
         <div class="total">
             <div class="total-title">Total:  </div>
-            <div class="total-price">$150</div>
+            <div class="total-price">₹0</div>
         </div>
-        <button class="proceed">Proceed</button>
+        <button class="proceed" id="proceeed">Proceed</button>
         <i class='fa fa-close cart-close' id="cartRemove" style='color: rgb(211, 237, 252)'></i>
     </div>
     <div class="products">
         <div class="p1 product">
             <img  class="image"src="1.jpg" alt="">
             <div class="p">
-                <p>GESSO</p>
-                <button class="btn">
+                <p class="product-title">GESSO</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
                 </button>
             </div>
+            <p class="product-price">Price: ₹229</p>
         </div>
         <div class="p1 product">
             <img class="image" src="2.jpg" alt="">
             <div class="p">
-                <p>RETARDER</p>
-                <button class="btn">
+                <p class="product-title">RETARDER</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: ₹119</p>
         </div>
         <div class="p1 product">
             <img class="image" src="3.jpg" alt="">
             <div class="p">
 
-                <p>LINSEED OIL</p>
-                <button class="btn">
+                <p class="product-title">LINSEED OIL</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: ₹150</p>
         </div>
         <div class="p1 product">
             <img class="image" src="4.jpg" alt="">
             <div class="p">
 
-                <p>TURPENTINE</p>
-                <button class="btn">
+                <p class="product-title">TURPENTINE</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" class="img"/>
                 </button>
             </div>
+            <p class="product-price">Price: ₹130</p>
         </div>
         <div class="p1 product">
             <img class="image" src="5.jpg" alt="">
             <div class="p">
 
-                <p>DRYING OIL</p>
-                <button class="btn">
+                <p class="product-title">DRYING OIL</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: ₹150</p>
         </div>
         <div class="p1 product">
             <img class="image" src="6.jpg" alt="">
             <div class="p">
 
-                <p>CAMLI-GEL</p>
-                <button class="btn">
+                <p class="product-title">CAMLI-GEL</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
             </button>
             </div>
+            <p class="product-price">Price: ₹139</p>
         </div>
         <div class="p1 product">
             <img class="image" src="7.jpg" alt="">
             <div class="p">
 
-                <p>VARNISH</p>
-                <button class="btn">
+                <p class="product-title">VARNISH</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: ₹110</p>
         </div>
         <div class="p1 product">
             <img class="image" src="8.jpg" alt="">
             <div class="p">
 
-                <p>CERULEAN</p>
-                <button class="btn">
+                <p class="product-title">CERULEAN</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: ₹260</p>
         </div>
         <div class="p1 product">
             <img class="image" src="9.jpg" alt="">
             <div class="p">
 
-                <p>MAGENTA</p>
-                <button class="btn">
+                <p class="product-title" >MAGENTA</p>
+                <button class="add-btn">
                 <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
             </div>
+            <p class="product-price">Price: $230</p>
         </div>
         <div class="p1 product">
             <img class="image" src="10.jpg" alt="">
             <div class="p">
 
-                <p>TITANIUM WHITE</p>
-                <button class="btn">
+                <p class="product-title">TITANIUM WHITE</p>
+                <button class="add-btn">
                     <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                    </button>
                 </button>
             </div>
+            <p class="product-price">Price: $220</p>
         </div>
     </div>
     <script src="script.js"></script>
