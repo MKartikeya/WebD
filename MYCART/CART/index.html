@@ -7,14 +7,35 @@
     <title>Art Supplies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/filter?f=classic&s=solid&an=bounce&pc=%231a5181">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="nav-container">
+            <!-- <i class="fa-solid fa-filter fa-bounce filter-icon" style="color: #1a5181;" ></i> -->
+            <img src="filter-solid.svg" class="fa-solid fa-filter fa-bounce filter-icon"></img>
             <a href="#" class="title">Art Supplies</a>
             <img src="cartlogo.jpeg" class="logo" alt="">
         </div>
+        <div class="nav-container2">
+            <i style="font-size:24px" class="fa refresh-btn">&#xf021;</i>
+            <input class="search-box" id="search-input" type="text">
+            <button class="search-btn"><i style="font-size:24px" class="fa">&#xf002;</i>Search</button>
+            <div class="navi-tags">
+                <a href="#">Login</a>
+            </div>
+        </div>
     </header>
+    <!-- <div class="search">
+        <input type="text">
+    </div> -->
+    <div class="filter filter-close">
+        <button class="filter-btn sort-low">Price: Low to High</button>
+        <button class="filter-btn sort-high">Price: High to Low</button>
+        <button class="filter-btn sort-reset">Reset</button>
+        <button class="filter-close-btn">Close</button>
+    </div>
     <div class="cart close">
         <h2 class="cart-title">Your Cart</h2>
         <div class="cart-content">
@@ -28,113 +49,11 @@
         <i class='fa fa-close cart-close' id="cartRemove" style='color: rgb(211, 237, 252)'></i>
     </div>
     <div class="products">
-        <div class="p1 product">
-            <img  class="image"src="1.jpg" alt="">
-            <div class="p">
-                <p class="product-title">GESSO</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹229</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="2.jpg" alt="">
-            <div class="p">
-                <p class="product-title">RETARDER</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹119</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="3.jpg" alt="">
-            <div class="p">
+        
 
-                <p class="product-title">LINSEED OIL</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹150</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="4.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">TURPENTINE</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" class="img"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹130</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="5.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">DRYING OIL</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹150</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="6.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">CAMLI-GEL</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-            </button>
-            </div>
-            <p class="product-price">Price: ₹139</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="7.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">VARNISH</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹110</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="8.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">CERULEAN</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: ₹260</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="9.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title" >MAGENTA</p>
-                <button class="add-btn">
-                <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-            </div>
-            <p class="product-price">Price: $230</p>
-        </div>
-        <div class="p1 product">
-            <img class="image" src="10.jpg" alt="">
-            <div class="p">
-
-                <p class="product-title">TITANIUM WHITE</p>
-                <button class="add-btn">
-                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
-                </button>
-            </div>
-            <p class="product-price">Price: $220</p>
-        </div>
+    </div>
+    <div class="nothing nothing-close" >
+        Ooops.... No Matches found!!!
     </div>
     <script src="script.js"></script>
 </body>

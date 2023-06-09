@@ -1,13 +1,109 @@
 const cart=document.querySelector(".cart")
+const filter=document.querySelector(".filter")
+const filterClose=document.querySelector('.filter-close-btn')
 const cartClose=document.getElementById("cartRemove");
 const cartOpen=document.querySelector(".logo");
+const filterOpen=document.querySelector(".filter-icon")
+const sortLow=document.querySelector(".sort-low");
+const sortHigh=document.querySelector(".sort-high");
+const sortReset=document.querySelector(".sort-reset");
+const search=document.querySelector(".search-btn");
+const nothing=document.querySelector(".nothing")
+const reset=document.querySelector(".refresh-btn")
 const itemsIncart = [];
+var resetItems=[{"title":"GESSO","price":229,"image":"1.jpg"},{"title":"RETARDER","price":119,"image":"2.jpg"},{"title":"LINSEED OIL","price":150,"image":"3.jpg"},{"title":"TURPENTINE","price":130,"image":"4.jpg"},{"title":"DRYING OIL","price":160,"image":"5.jpg"},{"title":"CAMLI-GEL","price":139,"image":"6.jpg"},{"title":"VARNISH","price":110,"image":"7.jpg"},{"title":"CERULEAN","price":260,"image":"8.jpg"},{"title":"MAGENTA","price":230,"image":"9.jpg"},{"title":"TITANIUM WHITE","price":220,"image":"10.jpg"},{"title":"CRIMSON LAKE","price":260,"image":"11.jpg"},{"title":"RAW UMBER","price":260,"image":"12.jpg"},{"title":"SCARLET LAKE","price":290,"image":"13.jpg"},{"title":"LEMON YELLOW","price":280,"image":"14.jpg"},{"title":"PRUSSIAN BLUE","price":260,"image":"15.jpg"},{"title":"ULTRAMARINE BLUE","price":220,"image":"16.jpg"},{"title":"VIRIDIAN HUE","price":170,"image":"17.jpg"}]
+var filterStatus=0;
+
 const proceed=document.querySelector('.proceed')
+reset.addEventListener('click',()=>{
+    console.log(resetItems)
+    cartItemsData=[];
+    resetItems.forEach((item)=>{
+        cartItemsData.push(item)
+    })
+    console.log(cartItemsData)
+    nothing.classList.add("nothing-close")
+    updateSorted();
+})
+const constcartItemsData=[{"title":"GESSO","price":229,"image":"1.jpg"},{"title":"RETARDER","price":119,"image":"2.jpg"},{"title":"LINSEED OIL","price":150,"image":"3.jpg"},{"title":"TURPENTINE","price":130,"image":"4.jpg"},{"title":"DRYING OIL","price":160,"image":"5.jpg"},{"title":"CAMLI-GEL","price":139,"image":"6.jpg"},{"title":"VARNISH","price":110,"image":"7.jpg"},{"title":"CERULEAN","price":260,"image":"8.jpg"},{"title":"MAGENTA","price":230,"image":"9.jpg"},{"title":"TITANIUM WHITE","price":220,"image":"10.jpg"},{"title":"CRIMSON LAKE","price":260,"image":"11.jpg"},{"title":"RAW UMBER","price":260,"image":"12.jpg"},{"title":"SCARLET LAKE","price":290,"image":"13.jpg"},{"title":"LEMON YELLOW","price":280,"image":"14.jpg"},{"title":"PRUSSIAN BLUE","price":260,"image":"15.jpg"},{"title":"ULTRAMARINE BLUE","price":220,"image":"16.jpg"},{"title":"VIRIDIAN HUE","price":170,"image":"17.jpg"}]
+var sortOrder=1 //low to high
+//-1 for high to low
+var cartItemsData=[{"title":"GESSO","price":229,"image":"1.jpg"},{"title":"RETARDER","price":119,"image":"2.jpg"},{"title":"LINSEED OIL","price":150,"image":"3.jpg"},{"title":"TURPENTINE","price":130,"image":"4.jpg"},{"title":"DRYING OIL","price":160,"image":"5.jpg"},{"title":"CAMLI-GEL","price":139,"image":"6.jpg"},{"title":"VARNISH","price":110,"image":"7.jpg"},{"title":"CERULEAN","price":260,"image":"8.jpg"},{"title":"MAGENTA","price":230,"image":"9.jpg"},{"title":"TITANIUM WHITE","price":220,"image":"10.jpg"},{"title":"CRIMSON LAKE","price":260,"image":"11.jpg"},{"title":"RAW UMBER","price":260,"image":"12.jpg"},{"title":"SCARLET LAKE","price":290,"image":"13.jpg"},{"title":"LEMON YELLOW","price":280,"image":"14.jpg"},{"title":"PRUSSIAN BLUE","price":260,"image":"15.jpg"},{"title":"ULTRAMARINE BLUE","price":220,"image":"16.jpg"},{"title":"VIRIDIAN HUE","price":170,"image":"17.jpg"}]
+search.addEventListener('click',()=>{
+
+    // console.log("searched")
+    // resetItems=[];
+    // cartItemsData.forEach((item)=>{
+    //     resetItems.push(item)
+    // })
+    var searchWord=document.getElementById("search-input").value
+    console.log(searchWord) 
+    cartItemsData=[];
+    var isFound=0
+    constcartItemsData.forEach((item)=>{
+        var curTitle=item.title
+        let re = new RegExp(searchWord, "i");
+        // console.log(curTitle.search(re))
+        if(curTitle.search(re)>=0){
+            cartItemsData.push(item)
+            isFound=1
+        }
+    })
+    if(!isFound){
+        nothing.classList.remove("nothing-close")
+    }
+    else{
+        nothing.classList.add("nothing-close")
+    }
+    // console.log(cartItemsData);
+    updateSorted()
+    document.getElementById("search-input").value="";
+})
+filterOpen.addEventListener('click',()=>{
+    filter.classList.remove("filter-close");
+    filterStatus=1;
+})
+filterClose.addEventListener('click',()=>{
+    filter.classList.add("filter-close")
+    filterStatus=0;
+})
+sortLow.addEventListener('click',()=>{
+    console.log("clicked")
+    sortOrder=1;
+    cartItemsData.sort((a, b) => {
+        return (a.price - b.price)*sortOrder;
+    });
+    updateSorted()
+})
+sortHigh.addEventListener('click',()=>{
+    sortOrder=-1;
+    cartItemsData.sort((a, b) => {
+        return (a.price - b.price)*sortOrder;
+    });
+    updateSorted()
+})
+sortReset.addEventListener('click',()=>{
+    // console.log(cartItemsData)
+    cartItemsData=[];
+    // console.log(cartItemsData)
+    constcartItemsData.forEach((item)=>{
+        cartItemsData.push(item)
+    })
+    // cartItemsData=constcartItemsData;
+    // console.log(cartItemsData)
+    updateSorted();
+    console.log(constcartItemsData)
+})
 proceed.addEventListener('click',()=>{
     alert('There is nothing ahead!')
 })
 cartOpen.onclick=()=>{
     cart.classList.remove("close");
+    var width = window.innerWidth;
+    if(width<=800 && filterStatus==1){
+        filter.classList.add("filter-close")
+    }
+    
 }
 cartClose.onclick=()=>{
     cart.classList.add("close");
@@ -37,6 +133,7 @@ function ready()
         var button=addToCart[i]
         button.addEventListener("click",addCartClicked)
     }
+    updateSorted()
 }
 
 function addCartClicked(event){
@@ -131,53 +228,38 @@ function updateTotal()
         document.getElementsByClassName("total-price")[0].innerText="₹"+total;
 
     }
+    if(cartBoxes.length==0){
+        document.getElementsByClassName("total-price")[0].innerText="₹0";
+
+    }
 }
 
 
+function updateSorted(){
 
-
-
-
-
-
-
-
-
-
-
-
-
-// cartClose.addEventListener("click",closeeCart);
-// cartOpen.addEventListener("click",closeeCart);
-// let isclosed=0;
-// console.log(cartRemove);
-// const addtoCart=document.querySelector(".btn");
-// addtoCart.addEventListener("click",addCart);
-// function closeeCart(){
-//     if(!isclosed){
-//         console.log("yes")
-//         cart.classList.add("close")
-//         // cart.style.left="100%";
-//         isclosed=1;
-//     }
-//     else{
-//         isclosed=0;
-//         console.log("opening")
-//         cart.classList.remove("close")
-//         // cart.style.right="10rem"
-//     }
-// }
-// function addCart(){
-//     cart.innerHTML+=`<div class="cart-box">
-//     <img src="1.jpg" alt="" class="cart-img">
-//     <div class="details">
-//         <div class="cart-product-title fontss">GESSO</div>
-//         <div class="cart-price fontss">Price: $150</div>
-//         <input type="number fontss" value="1" class="cart-quantity" id="">
-//     </div>
-//     <div class="remove-btn">
-//         <i class='fa fa-close cart-remove' style='color: red' ></i>
-//     </div>
-// </div>`
-// // cartClose=document.getElementById("cartRemove");
-// }
+    var homeBox=document.getElementsByClassName("products")[0];
+    homeBox.innerHTML="";
+    // console.log(homeBox.innerHTML)
+    var virhomebox=document.createElement("div")
+    // console.log(cartItemsData.length)
+    cartItemsData.forEach((item,index)=>{
+        var homeproductbox=document.createElement("div")
+        homeproductbox.classList.add("p1");
+        homeproductbox.classList.add("product");
+        var homeboxContent=`<img  class="image"src=${item.image} alt="">
+            <div class="p">
+                <p class="product-title">${item.title}</p>
+                <button class="add-btn">
+                    <img width="24" height="24" src="shopping-cart.gif" alt="shopping-cart--v1"/>
+                </button>
+            </div>
+            <p class="product-price">Price: ₹${item.price}</p>`;
+            // console.log(item.title)
+    homeproductbox.innerHTML=homeboxContent;
+    // console.log(homeproductbox.innerHTML)
+    homeBox.append(homeproductbox);
+    // console.log(homeBox.innerHTML)
+    // virhomebox.append(homeproductbox);
+    homeBox.getElementsByClassName("add-btn")[index].addEventListener('click',addCartClicked)
+    })
+}
