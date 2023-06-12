@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:  #00081D;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+.nav-bar{
+    display: flex;
+    padding: 1.5rem;
+    padding-left: 4vw;
+    /* gap: 50%; */
+}
+.right{
+    display: flex;
+    position: absolute;
+    right: 3vw;
+    gap: 20px;
+    align-items: center;
+}
+.language-input{
+    display: flex;
+    align-items: center;
+}
+#nav-logo{
+    width: 12vw;
+    max-width: 150px;
+    min-width: 95px;
+}
+#lang-select{
+    background-color: rgba(0, 0, 0, 0.518);
+    color: white;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    border-radius: 3px;
+    padding-left: 40px;
+    padding-right: 10px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+.sign-in{
+    background-color: red;
+    border: none;
+    width: 5rem;
+    height: 2rem;border-radius: 5px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+.language-input{
+    background: transparent;
+    color: white;
+    margin-left: 200px;
+    font-family: 'Roboto', sans-serif;
+}
+#globe{
+    transform: translateX(200%);
+}
+#down{
+    display: none;
+}
+.body1{
+    background-image: radial-gradient(93.75% 105.88% at 0.39% 99.26%, rgba(150, 1, 7, 0.4) 1.42%, rgba(30, 1, 66, 0.51) 53.8%, rgba(13, 14, 32, 0) 100%),linear-gradient(98.24deg, #1D0005 14.75%, rgba(0, 8, 29, 0.48) 100%),url(https://assets.nflxext.com/ffe/siteui/vlv3/ceb3b1eb-2673-4dd9-a6e3-0cd7a5e130ee/7540883d-de7a-4a69-8cc6-c3885d3a2b0b/IN-en-20230522-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    /* width: 100%; */
+    margin: 0 2.5%;
+    height: 100vh;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(6, 18, 41);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: calc(min(140px,20%));
+    height: auto;
+}
+.content-b1{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 10%;
+    padding-top: calc(min(140px,30%));
+    padding-right: 30%;
+
+}
+.heading-b1{
+    font-size: calc(max(45px,5vw));
+    font-weight: bolder;
+}
+.p-b1{
+font-size: 160%;
+}
+.form-b1{
+    font-size: 110%;
+    font-weight:lighter;
+}
+.form-content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.email-input{
+    background-color: #170004d6;
+    border: 0.5px solid rgba(255, 255, 255, 0.654);
+    border-radius: 4px;
+    color:rgb(255, 255, 255) ;
+    font-size: 18px;
+    padding:1rem ;
+    width:50%;
+    margin-right: 3px;
+    min-width: 200px;
+}
+.email-input:focus{
+    outline-color: white;
+    /* outline-offset: none; */
+}
+.get-started{
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    padding:1rem ;
+    font-size: 20px;
+    color:rgb(255, 255, 255) ;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    width: 26%;
+    min-width: 200px;
+}
+.body2{
+    background: radial-gradient(16.89% 46.52% at 75.51% 46.52%, #65143B 0%, #00081D 100%);
+    display: flex;
+    flex-direction: row;
+}
+.content-b2{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+.content-b2 h1{
+    font-size: calc(min(60px,4.5vw));
+    font-weight: bolder;
+    padding-bottom: 25px;
+}
+.content-b2 p,.content-b3 p{
+    font-size: 20px;
+}
+.image-b2{
+    width: 55vw;
+    min-width: 380px;
+    padding-right: 10%;
+    padding-top: 50px;
+}
+.body3{
+    background: radial-gradient(15.9% 43.04% at 31.9% 46.6%, rgb(101, 20, 59) 0%, rgb(0, 8, 29) 100%);
+    display: flex;
+    flex-direction: row;
+}
+.image-b3{
+    width: 55vw;
+    min-width: 380px;
+    padding-left: 10%;
+    padding-top: 50px;
+}
+.content-b3{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding-right: 10%;
+    padding-top: 10%;
+}
+.h1-b3{
+    font-size: calc(min(60px,4.5vw));
+    font-weight: bolder;
+    padding-bottom: 25px;
+}
+.faq-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.faqs{
+    width: 70vw;
+    height: 75px;
+    background-color: rgb(27, 36, 66);
+    border: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.p1{
+    float: left;
+}
+.p2{
+    float: right;
+}
+.body4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    padding-left: 30px;
+}
+.body5{
+    padding: 10% 15vw;
+}
+.body6{
+    padding-left: 15vw;
+}
+.links{
+    display: grid;
+}
+@media screen and (max-width:600px) {
+    #globe{
+        display: none;
+    }
+    #lang-select{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .content-b1{
+        padding-right: 10%;
+    }
+    .heading-b1{
+        font-size: 40px;
+    }
+    .p-b1{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .form-b1{
+        font-size: 15px;
+        font-weight: lighter;
+    }
+    .form-content{
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .email-input{
+        width: 100%;
+    }
+    .body2{
+        flex-direction: column;
+        align-items: center;
+        background:  #00081D;
+    }
+    .body3{
+        flex-direction: column-reverse;
+        align-items: center;
+        background:  #00081D;
+        align-items: center;
+    }
+    .content-b3{
+        width: 100%;
+        padding-left: 4rem;
+    }
+    .image-b2,.image-b3{
+        padding-left: 10%;
+        width: 100%;
+        padding-top: 20px;
+
+    }
+    .image-b3{
+        padding-right: 10%;
+    }
+    .content-b2{
+        width: 100%;
+        padding-right: 4rem;
+    }
+    .content-b2 h1{
+        font-size: calc(max(35px,4.5vw));
+    }
+    .h1-b3{
+        font-size: calc(max(35px,4.5vw));
+    }
+    .content-b2 p,.content-b3 p{
+        font-size: 11px;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.825);
+    }
+    .body4{
+        padding-left: 0;
+    }
+    .body4 h1{
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    .faqs{
+        width: 80vw;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0;
+    }
+    .body5{
+        padding: 10% 10vw;
+    }
+    .body6{
+        padding-left: 10vw;
+    }
+
+
+}
