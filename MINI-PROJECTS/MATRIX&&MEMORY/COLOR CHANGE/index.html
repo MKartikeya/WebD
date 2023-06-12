@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+    }
+    #color-input-palette{
+        margin: 1rem;
+        height: rem;
+    }
+    #color-set{
+        margin-top: 0.5rem;
+        padding: 5px;
+    }
+</style>
+<body >
+    <input type="color" name="" id="color-input-palette">
+    <input type="button" id="color-set" value="Set The Color" onclick="changeColor()">
+    <script>
+        function changeColor(){
+            let color=document.getElementById('color-input-palette').value;
+            document.body.style.backgroundColor=color;
+        }
+    </script>
+</body>
+</html>

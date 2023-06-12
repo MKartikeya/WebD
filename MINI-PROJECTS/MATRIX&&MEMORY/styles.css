@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Itim&family=Lusitana&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow: hidden;  */
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 3rem;
+    font-family: 'Roboto', sans-serif;
+    /* margin: 5rem; */
+}
+.customizer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 2rem;
+    font-family: 'Roboto', sans-serif;
+    /* margin: 5rem; */
+}
+.titl{
+    color: rgba(252, 255, 251, 0.548);
+    background-color: rgba(240, 248, 255, 0.164);
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow:4px 4px 1.5rem rgba(255, 255, 255, 0.596); 
+    margin-top: 2rem;
+    /* position: absolute; */
+    z-index: 20;
+    font-family: 'EB Garamond', serif;
+}
+#canvas{
+    background-color: black;
+    width:100vw;
+    z-index: 0;
+    height: 100vh;
+    position: absolute;
+}
+
+/* .button{
+    background-color: white;
+    color: black;
+    width: 10rem;
+    height: 3rem;
+    z-index: 20;
+    margin-left: 5rem;
+} */
+input{
+    size: 10rem;
+    color: white;
+    /* position: fixed; */
+    z-index: 20;
+    background-color: rgba(94, 212, 228, 0.58);
+    border-radius: 5px;
+}
+.bg-color-setter,.text-color-setter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    
+}
+.speed-setter{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#speed{
+    padding: 0.5rem;
+    color: black;
+}
+
+.button{
+    background-color: rgb(118, 216, 215);
+    padding: 20px 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgb(47, 83, 120);
+    /* font-size: 10vw; */
+    color: black;
+    text-decoration: none;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder
+    
+    /* position: relative; */
+    
+}
+.button span{
+    /* position: relative; */
+    z-index: 1;
+}
+.button::before{
+    content: "";
+    /* position: absolute; */
+    background-color: rgb(58, 58, 239) ;
+    width: 0;
+    height:0;
+    left: var(--xPos);
+    top: var(--yPos);
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    transition: width 0.5s,height 0.5s;
+}
+.button:hover::before{
+    width: 300px;
+    height: 300px;
+}
