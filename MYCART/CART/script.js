@@ -10,7 +10,12 @@ const sortReset=document.querySelector(".sort-reset");
 const search=document.querySelector(".search-btn");
 const nothing=document.querySelector(".nothing")
 const reset=document.querySelector(".refresh-btn")
+const signin=document.querySelector(".signin")
+const signinPage=document.querySelector("#app")
+const mainPage=document.querySelector(".main-page")
+const loginBtn=document.querySelector(".login-btn")
 const itemsIncart = [];
+var pPageOpened=0;
 var resetItems=[{"title":"GESSO","price":229,"image":"1.jpg"},{"title":"RETARDER","price":119,"image":"2.jpg"},{"title":"LINSEED OIL","price":150,"image":"3.jpg"},{"title":"TURPENTINE","price":130,"image":"4.jpg"},{"title":"DRYING OIL","price":160,"image":"5.jpg"},{"title":"CAMLI-GEL","price":139,"image":"6.jpg"},{"title":"VARNISH","price":110,"image":"7.jpg"},{"title":"CERULEAN","price":260,"image":"8.jpg"},{"title":"MAGENTA","price":230,"image":"9.jpg"},{"title":"TITANIUM WHITE","price":220,"image":"10.jpg"},{"title":"CRIMSON LAKE","price":260,"image":"11.jpg"},{"title":"RAW UMBER","price":260,"image":"12.jpg"},{"title":"SCARLET LAKE","price":290,"image":"13.jpg"},{"title":"LEMON YELLOW","price":280,"image":"14.jpg"},{"title":"PRUSSIAN BLUE","price":260,"image":"15.jpg"},{"title":"ULTRAMARINE BLUE","price":220,"image":"16.jpg"},{"title":"VIRIDIAN HUE","price":170,"image":"17.jpg"}]
 var filterStatus=0;
 
@@ -58,6 +63,14 @@ search.addEventListener('click',()=>{
     // console.log(cartItemsData);
     updateSorted()
     document.getElementById("search-input").value="";
+})
+loginBtn.addEventListener("click",()=>{
+    mainPage.classList.add("nothing-close")
+    signinPage.classList.remove("nothing-close")
+})
+signin.addEventListener("click",()=>{
+    signinPage.classList.add("nothing-close")
+    mainPage.classList.remove("nothing-close")
 })
 filterOpen.addEventListener('click',()=>{
     filter.classList.remove("filter-close");
@@ -260,6 +273,87 @@ function updateSorted(){
     homeBox.append(homeproductbox);
     // console.log(homeBox.innerHTML)
     // virhomebox.append(homeproductbox);
+    homeBox.getElementsByClassName("image")[index].addEventListener('click',(event,target)=>{
+        if(pPageOpened==1) clearpPage();
+        displayPclicked(event,target);
+    });
     homeBox.getElementsByClassName("add-btn")[index].addEventListener('click',addCartClicked)
     })
+}
+
+
+
+function displayPclicked(event,target){
+    console.log("called ikdheskc")
+    var img=event.target;
+    var parent=img.parentElement;
+    // var shopProduct=buttonparent.parentElement
+    // var priceParent=shopProduct.parentElement
+    var title=parent.getElementsByClassName('product-title')[0].innerText;
+    var price=parent.getElementsByClassName('product-price')[0].innerText;
+    var productImage=parent.getElementsByClassName('image')[0].src;
+    price.replace("Price: ₹","");
+
+
+    var pContainer=document.createElement("div")
+    pContainer.classList.add('product-container');
+    var pContainerContent=`
+    <div class="product-leftpart">
+        <div class="product-images">
+            <img src=${productImage} alt="" srcset="" class="product-img">
+        </div>
+    </div>
+    <div class="product-rightpart">
+        <div class="ppage-details">
+
+        <h2 class="ppage-title">${title}</h2>
+            <p class="ppage-price">₹${price}</p>
+            <a href="#" class="ppage-reviews">Reveiws: 4.5/5</a>
+            <div class="offers">
+                <ul>
+                    <li>10% off of ArtCart Membership.</li>
+                    <li>5% off on First time purchase.</li>
+                    <li>5% off on Camlin coupons.</li>
+                </ul>
+            </div>
+            <div class="ppage-btns">
+                <button class="ppageaddtocart">Add to Cart</button>
+                <button class="returnhome">Return to Home</button>
+            </div>
+        </div>
+    </div>
+</div>
+`
+
+pContainer.innerHTML=pContainerContent;
+var pWrapper=document.getElementsByClassName('product-wrapper')[0];
+if(pPageOpened==0){ pWrapper.append(pContainer);
+    pWrapper.classList.remove('nothing-close')}
+    console.log(pWrapper)
+    // cartbox.getElementsByClassName('cart-remove')[0].addEventListener('click',(event,title)=>{
+        pPageOpened=1;
+    //     removeCartItem(event);
+    //     removefromcart(title);
+    // })
+    // cartbox.getElementsByClassName('cart-quantity')[0].addEventListener('click',quantityChanged)
+    // itemsIncart.push(title)
+    var cartOpen=pWrapper.getElementsByClassName("ppage-cartlogo")[0];
+    cartOpen.onclick=()=>{
+        cart.classList.remove("close");
+        var width = window.innerWidth;
+        if(width<=800 && filterStatus==1){
+            filter.classList.add("filter-close")
+        }
+    }
+    var ppageAddtoCart=pWrapper.getElementsByClassName("ppageaddtocart")[0].addEventListener("click", ()=>{addProduct(title,price,productImage);
+    updateTotal();} )
+    var ppageReturn=pWrapper.getElementsByClassName("returnhome")[0].addEventListener("click",(event)=>{
+        pWrapper.classList.add("nothing-close");
+        var AHSH=event.target.parentElement.parentElement.parentElement.parentElement;
+        AHSH.remove();
+pPageOpened=0;})
+}
+
+function clearpPage(){
+    document.getElementsByClassName('product-container').remove();
 }
